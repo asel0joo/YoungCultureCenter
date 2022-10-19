@@ -380,58 +380,9 @@ $(document).ready(function(){
 		});
 });
 //banner
-$(document).ready(function(){
-	var bn_length = $(".banner li").length;
-	if (bn_length > 7)
-	{
-		var bannerAuto=null;
-		var bannerDirect="left";
 
-		function rightBanner(){
-			$(".banner ul").stop().animate(
-				{left:"-=130px"},0,function(){
-						var $bannerObj=$(".banner ul li:first").clone(true);
-						$(".banner ul li:first").remove();
-						$(".banner ul").css("left",0);
-						$(".banner ul").append($bannerObj);
-				}
-			)
-				if(bannerAuto)clearTimeout(bannerAuto);
-				bannerAuto=setTimeout(rightBanner,3000)
-		}
 
-		function leftBanner(){
-			$(".banner ul").stop().animate(
-				{left:"0px"},0,function(){
-					var $bannerObj=$(".banner ul li:last").clone(true);
-					$(".banner ul li:last").remove();
-					$(".banner ul").css("left","0");
-					$(".banner ul").prepend($bannerObj);
-				}
-			)
-				if(bannerAuto)clearTimeout(bannerAuto);
-				bannerAuto=setTimeout(rightBanner,3000)
-		}
-
-		$(document).ready(function(){
-
-		bannerAuto=setTimeout(rightBanner,3000)
-
-			$rightB=$(".bn_ctrl .bn_next");
-			$leftB=$(".bn_ctrl .bn_prev");
-			$pauseB=$(".bn_ctrl .bn_stop");
-			$bannerP_btn=$(".bn_ctrl .bn_stop img")
-			var bPlay = false;
-
-			$leftB.click(function(){
-				bannerDirect="left"
-				clearTimeout(bannerAuto);
-				$bannerP_btn.attr("src","/common/images/common/bn_stop.gif");
-				$bannerP_btn.attr("alt","배너일시정지");
-				leftBanner();
-				return false;
-				/*}*/
-			});
+		
 
 			$rightB.click(function(){
 				bannerDirect="right"
@@ -464,9 +415,7 @@ $(document).ready(function(){
 			$(".banner ul li a").bind("mouseleave focusout", function(){
 				bPlay = false;
 			});
-		});
-	}
-});
+
 (function($){
 	$.fn.photo_slide = function(options) {
 		var _this   = this,

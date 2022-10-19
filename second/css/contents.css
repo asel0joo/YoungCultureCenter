@@ -43,40 +43,34 @@
 
 /* container */
 /* [ contents_top - slideBox ] start */
-div.contents_top div.slideBox 	{ position: relative; height: 400px; width: 100%; overflow: hidden; }
-div.contents_top div.slideBox p.pageControl 	{ position: absolute; left:50%; top: 360px; z-index: 10; margin-left:-470px}
-div.contents_top div.slideBox p.pageControl a 	{ background-image: url('../images/main/slide_btns.png'); background-repeat: no-repeat; display: inline-block; height: 15px; /*text-indent: -9999px;*/ overflow: hidden; line-height: 9999px; vertical-align: top; }
-div.contents_top div.slideBox p.pageControl a[href="#img01"] 		{ background-position: 0 0; width: 15px; }
-div.contents_top div.slideBox p.pageControl a[href="#img02"] 		{ background-position: -25px 0; width: 15px; }
-div.contents_top div.slideBox p.pageControl a[href="#img03"] 		{ background-position: -25px 0; width: 15px; }
-div.contents_top div.slideBox p.pageControl a[href="#play"] 			{ background-position: -50px 0; width: 13px; }
-div.contents_top div.slideBox p.pageControl a[href="#stop"] 			{ background-position: -73px 0; width: 13px; }
+.slidebox {width:100%; margin: 0 auto;}
+.slidebox img {width: 100%; height: 500px;}
+.slidebox .slidelist {
+    white-space: nowrap;
+    font-size: 0;
+    overflow: hidden;
+}
+.slidebox .slideitem {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width:100%;
+    transition:all .35s;
+}
+[id="slide01"]:checked ~ .slidelist .slideitem {transform: translateX(0); animation: slide01 20s infinite;}
+[id="slide02"]:checked ~ .slidelist .slideitem {transform: translateX(-100%); animation: slide02 20s infinite;}
+[id="slide03"]:checked ~ .slidelist .slideitem {transform: translateX(-200%); animation: slide03 20s infinite;}
 
-div.contents_top div.slideBox p.pageControl a[href="#img01"]:hover , 
-div.contents_top div.slideBox p.pageControl a[href="#img01"]:focus 		{ background-position: 0 -25px; }
-div.contents_top div.slideBox p.pageControl a[href="#img02"]:hover , 
-div.contents_top div.slideBox p.pageControl a[href="#img02"]:focus 		{ background-position: -25px -25px; }
-div.contents_top div.slideBox p.pageControl a[href="#img03"]:hover , 
-div.contents_top div.slideBox p.pageControl a[href="#img03"]:focus 		{ background-position: -25px -25px; }
-div.contents_top div.slideBox p.pageControl a[href="#play"]:hover , 
-div.contents_top div.slideBox p.pageControl a[href="#play"]:focus 			{ background-position: -50px -25px; }
-div.contents_top div.slideBox p.pageControl a[href="#stop"]:hover , 
-div.contents_top div.slideBox p.pageControl a[href="#stop"]:focus 			{ background-position: -73px -25px; }
 
-div.contents_top div.slideBox p.pageControl a[href="#img01"].active 		{ background-position: 0 -25px; }
-div.contents_top div.slideBox p.pageControl a[href="#img02"].active		{ background-position: -25px -25px; }
-div.contents_top div.slideBox p.pageControl a[href="#img03"].active		{ background-position: -25px -25px; }
-div.contents_top div.slideBox p.pageControl a[href="#play"].active			{ background-position: -50px -25px; }
-div.contents_top div.slideBox p.pageControl a[href="#stop"].active			{ background-position: -73px -25px; }
-.banner_list li
-div.contents_top div.slideBox div.imgBox 			{ position: absolute; left: 0px; top: 0px; width:100000px; }
-div.contents_top div.slideBox div.imgBox div.cont 		{ float:left; width:100%}
-div.contents_top div.slideBox div.imgBox div.cont h5 	{ visibility: hidden; }
-div.contents_top div.slideBox div.imgBox div.cont span 	{ visibility: hidden; }
-div.contents_top div.slideBox div.imgBox div#main_img01 	{ background: url('../images/main/main_slide01.jpg') no-repeat center 60px; min-width: 960px; height: 380px; }
-div.contents_top div.slideBox div.imgBox div#main_img02 	{ background: url('../images/main/main_slide02.jpg') no-repeat center 8px; min-width: 960px; height: 380px; }
-div.contents_top div.slideBox div.imgBox div#main_img03 	{ background: url('../images/main/main_slide03.jpg') no-repeat center -40px; min-width: 960px; height: 380px; }
-/* [ middleCont - slideBox ] end */
+@keyframes slide01 {
+    0% {left: 0%;}
+    11% {left: 0%;}
+    14% {left: -100%;}
+    26% {left: -100%;}
+    29% {left: -200%;}
+    42% {left: -200%;}
+    100% {left: 0%;}
+}
 
 
 #wrap_container{width:100%;}
@@ -105,8 +99,8 @@ ul.tab{width:100%;overflow:hidden;}
 
 
 /* footer */
-#footer 					{ background:#f4f4f4;width:100%; }
-.footer_area 				{ overflow:hidden;width:990px;margin:0 auto;padding:25px 0 35px; }
+#footer 					{ background:#f4f4f4;width:10mapArea0%; }
+.footer_area 				{ overflow:hidden;width:100%;margin:0 auto;padding:25px 0 35px; }
 .footer_area p 				{ float:left; height: 70px; }
 .footer_area div.left 			{ float: left; padding-left: 15px;}
 .footer_area ul.footer_util		{ float:left; overflow:hidden; margin:5px 0 0 1px; }
@@ -140,6 +134,39 @@ ul.tab{width:100%;overflow:hidden;}
 .contents .introduction h3 {font-size: 32px;font-family:"nanumB";color:#000}
 .contents .introduction .intro {margin:35px 0 0 0}
 
+
+.content_list{width:990px;margin:0 auto; margin-top:40px}
+
+
+
+.group_area{clear:both;}
+.group_area .group_area_list{overflow:hidden;}
+
+.group_area .group_area_list li h2{margin-bottom:15px;  font-size: 20px;font-family:"nanumB","Malgun Gothic", sans-serif; line-height:20px;color:#0e4098}
+
+/*프로그램*/
+.group_area .group_area_list li.first{position:relative;width:300px;padding:0px;float:left;}
+.group_area .group_area_list li.first span{display:block;position:absolute;right:5px;top:0px;}
+.group_area .group_area_list li.first .mapArea img {border:1px solid #dbdbdb;padding:0px;width: 299px; height: 153px;}
+.plus_area{width: 20px; height: 20px;}
+
+/* 게시판_최근게시물 모음::새소식, 이용문의 */
+.group_area .group_area_list li.notice{position:relative;padding:0px;float:right;margin:0px}
+
+.board{float:left;position:relative;width:638px;height:293px;margin:0 0 0 23px;border:1px solid #e5e5e5;border-bottom-color:#c4c4c4;border-right-color:#c4c4c4;}
+.board > ul{width:597px;}
+.board > ul > li{display:block;float:left;width:20%;}
+.board > ul > li > button{display:block;position:relative;width:100%;height:41px;margin:-1px 0 0 0;padding:0;background-color:#fff;border-top:1px solid #e5e5e5;border-left:none;border-right:none;border-bottom:none;text-align:center;z-index:10;}
+.board > ul > li > button > span{display:block;height:31px;margin:0;padding:10px 0 0 0;border-left:1px solid #e5e5e5;color:#353535;font-size:17px;line-height:19px;font-family:"nanumB","Malgun Gothic", sans-serif; line-height:20px;}
+.board > ul > li:first-child > button span{border-left:none;}
+.board > ul > li > button.on,.board > ul > li > button:hover{height:47px;background:url('../images/main/board_on.png') no-repeat 50% bottom;border-top-color:#006bb6;}
+.board > ul > li > button.on span,.board > ul > li > button:hover span{margin:0 0 6px 0;color:#004ea2;}
+.board .tabcontent{position:absolute;left:0;top:40px;width:598px;padding:20px;border-top:1px solid #e5e5e5;}
+
+.tabcontent > ul > li{float:left;position:relative;width:97%;margin:0 3% 5px 0;padding:0 0 0 1%;background:url('../images/main/board_bul.gif') no-repeat left 50%;}
+.tabcontent > ul > li > a{color:#5d5d5d;font-size:16px;line-height:31px;}
+.tabcontent > ul > li > span{position:absolute;right:0;top:50%;margin-top:-7px;color:#666;font-size:14px;line-height:13px;}
+.board .brd_more{display:none;position:absolute;right:0;top:0;width:40px;height:40px;background:url('../images/main/board_more.png') no-repeat 50%;border-left:1px solid #e5e5e5;font-size:0;line-height:0;}
 
 
 
