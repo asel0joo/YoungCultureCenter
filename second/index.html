@@ -119,7 +119,6 @@
 	<!-- //header -->
 	<script language="javascript">
 
-
 		function GetCookie(name) {
 			var nameofcookie = name + "=";
 			var x = 0;
@@ -141,21 +140,38 @@
 
 	<!-- wrap_container -->
 		<!-- banner -->
-		<div class="slidebox">
-			<input type="radio" name="slide" id="slide01" checked>
-			<input type="radio" name="slide" id="slide02">
-			<input type="radio" name="slide" id="slide03">
-			<ul class="slidelist">
-					<li class="slideitem">
-							<div>
-									<a href="#"><img src="\img\slide\건강.jpg"></a>
-									<a href="#"><img src="\img\slide\베이킹.jpg"></a>
-									<a href="#"><img src="\img\slide\운동.jpg"></a>
-							</div>                
-					</li>
-			</ul>
-		</div>
 
+	<!-- 배너 좌우버튼 -->
+<!-- partial:index.partial.html -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+<div class="slider-1">
+    <div class="slides">
+        <div class="active" style="background-image:url(../img/slide/건강.jpg);"></div>
+        <div style="background-image:url(../img/slide/베이킹.jpg);"></div>
+        <div style="background-image:url(../img/slide/운동.jpg);"></div>
+    </div>
+    <div class="page-btns">
+        <div class="active"></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="side-btns">
+        <div>
+            <span><i class="fas fa-angle-left"></i></span>
+        </div>
+        <div>
+            <span><i class="fas fa-angle-right"></i></span>
+        </div>
+    </div>
+</div>
+<!-- partial -->
+  <script  src="../js/common.js"></script>
+	
 
 	<div class="contents_middle">
 		<!-- 중간 퀵메뉴 -->
