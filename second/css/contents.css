@@ -149,7 +149,7 @@ ul.tab{width:100%;overflow:hidden;}
 
 
 /* footer */
-#footer 					{ background:#f4f4f4;width:10mapArea0%; }
+#footer 					{ background:#f4f4f4;width:100%; mapArea0%; }
 .footer_area 				{ overflow:hidden;width:100%;margin:0 auto;padding:25px 0 35px; }
 .footer_area p 				{ float:left; height: 70px; }
 .footer_area div.left 			{ float: left; padding-left: 15px;}

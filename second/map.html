@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta http-equiv="Content-Script-Type" content="text/javascript" />
-	<meta http-equiv="Content-Style-Type" content="text/css" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>YOUNG문화체육센터</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>찾아오시는 길</title>
 	<link rel="stylesheet" type="text/css" href="/css/contents.css" />
 	<script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
 	<script type="text/javascript" src="/js/default.js"></script><!-- 메뉴 -->
 	<script type="text/javascript" src="/js/main.js"></script><!-- 메인이미지 -->
 	<script type="text/javascript" src="/js/common.js"></script><!-- 공지사항 -->
-
-
 
 	<script type="text/javascript">
 		function printElem(options) {
@@ -45,12 +41,9 @@
 			});
 		});
 	</script>
-
 </head>
-
 <body>
-
-	<!-- header -->
+  <!-- header -->
 	<div id="header">
 		<div class="gnb_top">
 
@@ -117,7 +110,6 @@
 	<!-- //header -->
 	<script language="javascript">
 
-
 		function GetCookie(name) {
 			var nameofcookie = name + "=";
 			var x = 0;
@@ -133,12 +125,51 @@
 			}
 			return "";
 		}
-//-->
 	</script>
+
+<div class="container">
+	<div class="left_area">
+		<h2>센터소개</h2>
+		<div class="lnb_area">
+			<ul>
+				<li><a href="/introduction/introduction01.asp">인사말</a></li>
+				<li><a href="/introduction/introduction02.asp">설립목적</a></li>
+				<li><a href="/introduction/introduction03.asp">조직도</a></li>
+				<li><a href="/introduction/introduction04.asp" class="on">오시는길</a></li>
+			</ul>
+		</div>
+	</div>
+</div><!-- end of left_area -->
+
+<!-- 오시는길 -->
+<!-- * 카카오맵 - 지도퍼가기 -->
+<!-- 1. 지도 노드 -->
+<div id="daumRoughmapContainer1666269316508" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+
+<!--
+	2. 설치 스크립트
+	* 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
+-->
+<script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+
+<!-- 3. 실행 스크립트 -->
+<script charset="UTF-8">
+	new daum.roughmap.Lander({
+		"timestamp" : "1666269316508",
+		"key" : "2c575",
+		"mapWidth" : "640",
+		"mapHeight" : "360"
+	}).render();
+</script>
 
 </body>
 
 
+
+
+
+
+<!-- footer 시작 -->
 <footer>
 	<div id="footer">
 		<div class="announcement">
@@ -163,8 +194,6 @@
 			<li><a href="/introduction/introduction04.asp">찾아오시는 길</a></li>
 			<li><a href="/etc/sitemap.asp">사이트맵</a></li>
 		</ul>
-
-
 		<address>
 			사업자등록번호 : 123-45-678912 &nbsp;&nbsp;상호명 : YOUNG문화체육센터 &nbsp;&nbsp;대표자 : Young티브잡스<BR>
 			서울 서초구 서초대로 77길 55,에이프로 스퀘어 3층(서초동) &nbsp;&nbsp;우편번호 : 06611 &nbsp;&nbsp;전화번호 : 02-532-6509 &nbsp;&nbsp;
@@ -174,5 +203,4 @@
 	</div>
 </div>
 </footer>
-
 </html>
