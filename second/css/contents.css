@@ -120,8 +120,7 @@
 
 /* 슬라이더 1 끝 */
 
-
-
+/* 찾아오시는길 글자 */
 
 #wrap_container{width:100%;}
 .contents_top{min-width:990px;height:380px;background:#fff;}
@@ -150,7 +149,7 @@ ul.tab{width:100%;overflow:hidden;}
 
 /* footer */
 #footer 					{ background:#f4f4f4;width:100%; mapArea0%; }
-.footer_area 				{ overflow:hidden;width:100%;margin:0 auto;padding:25px 0 35px; }
+.footer_area 				{ overflow:hidden;width:100%;margin:0 auto;padding:25px 0 35px; background-color: #faf7f2; }
 .footer_area p 				{ float:left; height: 70px; }
 .footer_area div.left 			{ float: left; padding-left: 15px;}
 .footer_area ul.footer_util		{ float:left; overflow:hidden; margin:5px 0 0 1px; }
@@ -249,3 +248,6 @@ ul.tab{width:100%;overflow:hidden;}
 	width: 106px;
 	height: 43px;
 }
+
+
+/* 찾아오시는 길 */

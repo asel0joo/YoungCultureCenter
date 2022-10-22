@@ -13,38 +13,37 @@
 	<script type="text/javascript" src="/js/main.js"></script><!-- 메인이미지 -->
 	<script type="text/javascript" src="/js/common.js"></script><!-- 공지사항 -->
 
+<script type="text/javascript">
+	function printElem(options) {
+		$(".mapArea").printElement(options);
+	}
 
-
-	<script type="text/javascript">
-		function printElem(options) {
-			$(".mapArea").printElement(options);
-		}
-
-		$(document).ready(function () {
-			$(".printBtn").click(function () {
-				printElem({
-					printMode: "popup",
-					leaveOpen: false,
-					overrideElementCSS: ["/css/contents.css"]
-				});
-			});
-			// 프로그램탭이동버튼
-			$(".map_tab > li").bind("focusin", function (i) {
-				var currTab = $(this).index();
-				$(this).siblings().removeClass("on");
-				$(this).addClass("on");
-				$("[id^='mapArea_']").hide();
-				$("[id^='mapArea_" + currTab + "']").show();
-			});
-			$(".map_tab > li").bind("click", function (i) {
-				var currTab = $(this).index();
-				$(this).siblings().removeClass("on");
-				$(this).addClass("on");
-				$("[id^='mapArea_']").hide();
-				$("[id^='mapArea_" + currTab + "']").show();
+	$(document).ready(function () {
+		$(".printBtn").click(function () {
+			printElem({
+				printMode: "popup",
+				leaveOpen: false,
+				overrideElementCSS: ["/css/contents.css"]
 			});
 		});
-	</script>
+		// 프로그램탭이동버튼
+		$(".map_tab > li").bind("focusin", function (i) {
+			var currTab = $(this).index();
+			$(this).siblings().removeClass("on");
+			$(this).addClass("on");
+			$("[id^='mapArea_']").hide();
+			$("[id^='mapArea_" + currTab + "']").show();
+		});
+		$(".map_tab > li").bind("click", function (i) {
+			var currTab = $(this).index();
+			$(this).siblings().removeClass("on");
+			$(this).addClass("on");
+			$("[id^='mapArea_']").hide();
+			$("[id^='mapArea_" + currTab + "']").show();
+		});
+	});
+</script>
+
 
 </head>
 
@@ -55,16 +54,11 @@
 	<!-- header -->
 	<div id="header">
 		<div class="gnb_top">
-
 			<ul class="util_nav">
-
 				<li><a href='/index.asp'>홈으로</a></li>
 				<li><a href='/member/login.asp'>로그인</a></li>
 				<li><a href='/member/join.asp'>마이페이지</a></li>
-
-
 			</ul>
-
 		</div>
 
 		<div class="gnb_wrap">
@@ -115,7 +109,9 @@
 			</div>
 			<p class="bgB"></p>
 		</div>
+
 	</div>
+
 	<!-- //header -->
 	<script language="javascript">
 
@@ -140,19 +136,19 @@
 
 	<!-- wrap_container -->
 		<!-- banner -->
-
 	<!-- 배너 좌우버튼 -->
 <!-- partial:index.partial.html -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"/>
 
 <div class="slider-1">
     <div class="slides">
         <div class="active" style="background-image:url(../img/slide/건강.jpg);"></div>
         <div style="background-image:url(../img/slide/베이킹.jpg);"></div>
         <div style="background-image:url(../img/slide/운동.jpg);"></div>
+				<div style="background-image:url(../img/slide/코딩수업.png);"></div>
     </div>
     <div class="page-btns">
         <div class="active"></div>
@@ -161,16 +157,69 @@
         <div></div>
     </div>
     <div class="side-btns">
-        <div>
-            <span><i class="fas fa-angle-left"></i></span>
-        </div>
-        <div>
-            <span><i class="fas fa-angle-right"></i></span>
-        </div>
-    </div>
+			<div>
+					<span><i class="fas fa-angle-left"></i></span>
+			</div>
+			<div>
+					<span><i class="fas fa-angle-right"></i></span>
+			</div>
+	</div>
 </div>
 <!-- partial -->
-  <script  src="../js/common.js"></script>
+<script  src="../js/common.js"></script>
+<script>
+// 기존 버튼형 슬라이더
+$('.slider-1 > .page-btns > div').click(function(){
+		var $this = $(this);
+		var index = $this.index();
+		
+		$this.addClass('active');
+		$this.siblings('.active').removeClass('active');
+		
+		var $slider = $this.parent().parent();
+		
+		var $current = $slider.find(' > .slides > div.active');
+		
+		var $post = $slider.find(' > .slides > div').eq(index);
+		
+		$current.removeClass('active');
+		$post.addClass('active');
+	});
+
+	// 좌/우 버튼 추가 슬라이더
+	$('.slider-1 > .side-btns > div').click(function(){
+		var $this = $(this);
+		var $slider = $this.closest('.slider-1');
+		
+		var index = $this.index();
+		var isLeft = index == 0;
+		
+		var $current = $slider.find(' > .page-btns > div.active');
+		var $post;
+		
+		if ( isLeft ){
+				$post = $current.prev();
+		}
+		else {
+				$post = $current.next();
+		};
+		
+		if ( $post.length == 0 ){
+				if ( isLeft ){
+						$post = $slider.find(' > .page-btns > div:last-child');
+				}
+				else {
+						$post = $slider.find(' > .page-btns > div:first-child');
+				}
+		};
+		
+		$post.click();
+	});
+
+	setInterval(function(){
+		$('.slider-1 > .side-btns > div').eq(1).click();
+	}, 3000);
+</script>
 	
 
 	<div class="contents_middle">
@@ -193,25 +242,20 @@
 		<!-- 행사 / 이벤트 -->
 		<!-- 공지사항 -->
 		<!-- 캘린더 -->
-		<div class="content_list">
-			<div class="group_area">
+	<div class="content_list">
+		<div class="group_area">
 				<ul class="group_area_list">
+					
 					<li class="first">
-
 						<h2>프로그램</h2><span><a href="/program/program.asp"><img class="plus_area" src="/img/플러스.png"
 									alt="프로그램소개 더보기"></a></span>
-
-
 						<div class="mapArea">
-
 							<div id="mapArea_0">
 								<a href="/program/program.asp"><img src="/img/쿠키.jpg" alt="쿠키만들기 프로그램 바로가기"></a>
 							</div>
-
 							<div id="mapArea_1" style="display:none;">
 								<a href="/program/program.asp?course=6"><img src="/img/코딩 (1).jpg" alt="코딩 프로그램 바로가기"></a>
 							</div>
-
 							<div id="mapArea_2" style="display:none;">
 								<a href="/program/program.asp?course=2"><img src="/img/화상영어.jpg" alt="화상영어 프로그램 바로가기"></a>
 							</div>
@@ -219,8 +263,8 @@
 								<a href="/program/program.asp?course=4"><img src="/img/독서.jpg"
 										alt="독서모임 프로그램 바로가기"></a>
 							</div>
-
 						</div>
+						
 						<ul class="tab map_tab">
 							<li class="on"><a href="#map1" title="수영">베이킹</a></li>
 							<li><a href="#map2" title="찜질방">코딩</a></li>
@@ -241,8 +285,8 @@
 									<button onclick="tabOn(1,1); return false;" onmouseover="tabOn(1,1); return false;" id="tab1m1"
 										class="on"><span>공지사항</span></button>
 									<div id="tab1c1" class="tabcontent" style="display: block;">
+										
 										<ul class="clearfix">
-
 											<li><a href="/board/detail.asp?board=notice&amp;idx=304">2022년 10월 2차 수영
 													공지사항</a><span>2022-10-12</span></li>
 
@@ -258,27 +302,20 @@
 											<li><a href="/board/detail.asp?board=notice&amp;idx=300">2022년 9월 2차 수영 신청안내 및
 													시간표</a><span>2022-09-02</span></li>
 
-											<li><a href="/board/detail.asp?board=notice&amp;idx=299">익산문화체육센터 운영 안내</a><span>2022-08-31</span>
+											<li><a href="/board/detail.asp?board=notice&amp;idx=299">Young문화체육센터 운영 안내</a><span>2022-08-31</span>
 											</li>
-
 										</ul>
-									</div>
 
+									</div>
 								</li>
 							</ul>
-
 						</div>
-						<a href="/board/list.asp?board=notice" id="tab1more1" class="brd_more" style="display: block;">공지사항 더보기</a>
-					</li>
+					 </li>
+				 
 				</ul>
-			</div>
-
-
-
-
-
 		</div>
 	</div>
+	
 </body>
 
 
@@ -298,23 +335,23 @@
 		</div><!-- // announcement -->
 	</div>
 
-<div class="footer_area">
-	<div class="left">
-		<ul class="footer_util">
-			<li class="first B"><a href="/etc/individual_info.asp">개인정보처리방침</a></li>
-			<li><a href="/etc/individual_info02.asp">이용약관</a></li>
-			<li><a href="/introduction/introduction04.asp">찾아오시는 길</a></li>
-			<li><a href="/etc/sitemap.asp">사이트맵</a></li>
-		</ul>
+	<div class="footer_area">
+		<div class="left">
+			<ul class="footer_util">
+				<li class="first B"><a href="/etc/individual_info.asp">개인정보처리방침</a></li>
+				<li><a href="/etc/individual_info02.asp">이용약관</a></li>
+				<li><a href="/introduction/introduction04.asp">찾아오시는 길</a></li>
+				<li><a href="/etc/sitemap.asp">사이트맵</a></li>
+			</ul>
 
-
-		<address>
-			사업자등록번호 : 123-45-678912 &nbsp;&nbsp;상호명 : YOUNG문화체육센터 &nbsp;&nbsp;대표자 : Young티브잡스<BR>
-			서울 서초구 서초대로 77길 55,에이프로 스퀘어 3층(서초동) &nbsp;&nbsp;우편번호 : 06611 &nbsp;&nbsp;전화번호 : 02-532-6509 &nbsp;&nbsp;
-			팩스번호 : 02-2038-0076 &nbsp;&nbsp;<a href='mailto:icsc9100@hotmail.com'>E-mail : ezenac@korea.co.kr</a>
-		</address>
-		<div class='copy'>Copyright (c) 2022 YOUNG문화체육센터 All right reserved.</div>
+			<address>
+				사업자등록번호 : 123-45-678912 &nbsp;&nbsp;상호명 : YOUNG문화체육센터 &nbsp;&nbsp;대표자 : Young티브잡스<BR>
+				서울 서초구 서초대로 77길 55,에이프로 스퀘어 3층(서초동) &nbsp;&nbsp;우편번호 : 06611 &nbsp;&nbsp;전화번호 : 02-532-6509 &nbsp;&nbsp;
+				팩스번호 : 02-2038-0076 &nbsp;&nbsp;<a href='mailto:icsc9100@hotmail.com'>E-mail : ezenac@korea.co.kr</a>
+			</address>
+			<div class='copy'>Copyright (c) 2022 YOUNG문화체육센터 All right reserved.</div>
+			
+		</div>
 	</div>
-</div>
 </footer>
 </html>

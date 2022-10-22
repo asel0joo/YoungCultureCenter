@@ -42,20 +42,16 @@
 		});
 	</script>
 </head>
+
 <body>
   <!-- header -->
 	<div id="header">
 		<div class="gnb_top">
-
 			<ul class="util_nav">
-
 				<li><a href='/index.asp'>홈으로</a></li>
 				<li><a href='/member/login.asp'>로그인</a></li>
 				<li><a href='/member/join.asp'>마이페이지</a></li>
-
-
 			</ul>
-
 		</div>
 
 		<div class="gnb_wrap">
@@ -106,7 +102,9 @@
 			</div>
 			<p class="bgB"></p>
 		</div>
+
 	</div>
+
 	<!-- //header -->
 	<script language="javascript">
 
@@ -127,24 +125,57 @@
 		}
 	</script>
 
-<div class="container">
-	<div class="left_area">
-		<h2>센터소개</h2>
-		<div class="lnb_area">
-			<ul>
-				<li><a href="/introduction/introduction01.asp">인사말</a></li>
-				<li><a href="/introduction/introduction02.asp">설립목적</a></li>
-				<li><a href="/introduction/introduction03.asp">조직도</a></li>
-				<li><a href="/introduction/introduction04.asp" class="on">오시는길</a></li>
-			</ul>
-		</div>
-	</div>
-</div><!-- end of left_area -->
+
 
 <!-- 오시는길 -->
 <!-- * 카카오맵 - 지도퍼가기 -->
 <!-- 1. 지도 노드 -->
-<div id="daumRoughmapContainer1666269316508" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+<div>
+	
+	<div id="daumRoughmapContainer1666269316508" class="root_daum_roughmap root_daum_roughmap_landing" style="margin: auto;">
+		
+		<div class="cont" style="margin-top: 50px;">
+			<h1 style="margin-bottom: 30px;"><b>오시는 길</b></h1>
+			<div class="section section_address">
+				<div class="address">
+				<strong class="tit">주소</strong>
+					<span class="txt">서울 서초구 서초대로77길 55 에이프로스퀘어 3층</span>
+				</div>
+				<div class="phone">
+					<strong class="tit">전화</strong>
+					<span class="txt">1644-0685</span>
+				</div>
+			</div>
+			<div class="section section_busstop">
+				<strong class="title">주변 정류장</strong>
+					<ul class="wrap_list">
+						<li><span class="icon_bus icon_bus1"></span>
+						<a href="https://map.kakao.com/?busStopId=BS135298&from=roughmap" target="_blank">교보타워앞</a>
+						</li>
+					</ul>
+			</div>
+			<div class="section section_busline lst">
+				<strong class="title">주변 버스</strong>
+					<span class="screen_out">해당 장소 주변에 정차하는 버스리스트</span>
+						<ul class="wrap_list how_way how_bus">
+							<li class="ico_bus3"><span class="icon_bus">일반</span>
+								<span class="txt">
+									<span class="txt_item">
+											<a href="https://map.kakao.com/?busInfoId=B12439&amp;busStopId=BS135298&amp;from=roughmap" target="_blank">서초03</a>
+											<span class="txt_bar hide_text">&nbsp;</span>
+									</span>
+									<span class="txt_item">
+										<a href="https://map.kakao.com/?busInfoId=B27507&amp;busStopId=BS135298&amp;from=roughmap" target="_blank">146, 4312, 9711, 9700...</a>
+									</span>
+								</span>
+							</li>
+						</ul>
+			</div>
+
+		</div>
+
+	</div>
+</div>
 
 <!--
 	2. 설치 스크립트
@@ -162,11 +193,10 @@
 	}).render();
 </script>
 
+<!-- 지도 밑 글자 -->
+
+
 </body>
-
-
-
-
 
 
 <!-- footer 시작 -->
